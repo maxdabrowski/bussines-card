@@ -1,0 +1,362 @@
+* {
+    box-sizing: border-box;
+}
+.title-card{
+    font-family: 'Major Mono Display', monospace;
+    text-align:center;
+    text-align: center;
+    font-size: 5.0rem;
+    color: #F15C5C;
+    margin: 7rem;
+}
+.title-description{
+    text-align: center;
+    margin-bottom: 1.0rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+/*-------------------OSTYLOWANIE FORMULARZA-----------------*/
+
+.form {
+    margin:3rem auto;
+    font-family:sans-serif;
+    max-width:40rem;
+}
+.form .form-row {
+    margin-bottom:1rem;
+}
+.form .form-row:last-child {
+    margin-bottom: 0;
+}
+.form input
+.form textarea
+.form .checkbox-cnt .state {
+    box-shadow:inset 0 1px 5px rgba(0,0,0,0.07);
+}
+.form input
+ {
+    border-radius:0.2rem;
+    font-family:sans-serif;
+    padding:0.8rem;
+  
+    display: block;
+    width:100%;
+    color:#666;
+}
+textarea
+ {
+    border-radius:0.2rem;
+    font-family:sans-serif;
+    padding:0.8rem;
+    display: block;
+    width:100%;
+    color:#666;
+    height: 5rem;
+}
+.form input[type=text],
+.form input[type=email],
+.form input[type=tel]
+{
+    border:1px solid #aaa;
+}
+.form input:focus
+{
+    border-color:#9DC9F5;
+    box-shadow:inset 0 0 0 1px #9DC9F5, inset 0 1px 5px rgba(0,0,0,0.07);
+    outline:none;
+}
+.form label {
+    font-weight:bold;
+    display: block;
+    font-size:0.9rem;
+    margin-bottom:0.5rem;
+}
+.form .submit-btn {
+    width: 100%;
+    font-family: sans-serif;
+    padding:1rem 2rem;
+    background: #F15C5C;
+    border:0;
+    border-radius:0.2rem;
+    color:#fff;
+    font-size:1.1rem;
+    font-weight: bold;
+    transition: 0.3s background-color;
+    cursor: pointer;
+}
+.form .submit-btn:hover {
+    background: #A60E0E;
+}
+.form .checkbox-cnt {
+    margin-bottom: 2.0rem;
+    margin-top: 2.0rem;
+    padding-left:3rem;
+    position: relative;
+    font-weight: normal;
+    font-size:0.85rem;
+    line-height: 1.1rem;
+    color:#444;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+/*-------------------OSTYLOWANIE CHECKBOXA-----------------*/
+
+.form .checkbox-cnt .state {
+    width:2rem;
+    height: 2rem;
+    display: block;
+    position: absolute;
+    left:0;
+    top:-0.5rem;
+    border:1px solid #aaa;
+    border-radius:0.2rem;
+}
+.form .checkbox-cnt .state:before {
+    width:1rem;
+    height: 1rem;
+    border-radius:0.2rem;
+    background: #F15C5C;
+    display: block;
+    position: absolute;
+    left:50%;
+    top:50%;
+    content:'';
+    transform:translate(-50%, -50%) scale(1);
+    opacity:0;
+}
+.form .checkbox-cnt input:checked ~ .state:before {
+    animation: checkboxShowAnim 0.5s 1;
+    opacity: 1;
+}
+.form .checkbox-cnt input {
+    position:absolute;
+    top:0; left:0;
+    width:2rem;
+    height: 2rem;
+    z-index: 2;
+    cursor:pointer;
+    padding:0;
+    margin:0;
+    opacity: 0;
+}
+.form input[type=text].error,
+.form input[type=email].error,
+.form input[type=tel].error,
+.form textarea.error,
+.form .checkbox-cnt input.error ~ .state {
+    border-color:#E01546;
+}
+.field-error {
+    color:#E01546;
+    padding:0.5rem 0;
+    font-size:0.8rem;
+}
+@keyframes checkboxShowAnim {
+    0%  { border-radius:50%; transform:translate(-50%, -50%) scale(0.2); }
+    50% { transform:translate(-50%, -50%) scale(1.2); }
+    100% { transform:translate(-50%, -50%) scale(1); }
+}
+
+.element-is-busy {
+    position: relative;
+    pointer-events: none;
+    opacity:0.5;
+}
+.element-is-busy::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-right-color: rgba(0,0,0,0.7);
+    transform: translate(-50%, -50%) rotate(0deg);
+    content:'';
+    animation: rotateSingleLoading 0.3s infinite linear;
+    z-index: 100;
+}
+@keyframes rotateSingleLoading {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+/*-------------------OSTYLOWANIE BŁĘDNEJ WALIDACJI-----------------*/
+.form .send-error {
+    display:inline-block;
+    font-family: sans-serif;
+    font-size:0.9rem;
+    padding:1rem 1.5rem;
+    color:#E01546;
+}
+.form-send-success {
+    font-family: sans-serif;
+    text-align:center;
+    font-size:2rem;
+    font-weight:bold;
+    border:1px solid #eee;
+    color:#333;
+    padding:10rem 0;
+    margin:3rem auto;
+    max-width:40rem;
+}
+.form-send-success strong {
+    display:block;
+    margin-bottom:0.5rem;
+}
+.form-send-success span {
+    font-size:1rem;
+    color:#888;
+    font-weight:normal;
+    display: block;
+}
+@media screen and (max-width:500px) {
+    .form .submit-btn {
+        display: block;
+        width: 100%;
+    }
+    .form .send-error {
+        text-align:center;
+        display: block;
+    }
+}
+
+/*-------------------OSTYLOWANIE WIZYTÓWKI-----------------*/
+
+.output {
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: url(images/1.jpg) no-repeat center center ;
+    background-size: cover;
+    margin: 0 auto; 
+    margin-top: 200px;
+    display: none;
+}
+.profile-card {
+    width: 800px;
+    max-width: calc(100vw - 10px);
+    position: relative;
+    margin: 0 auto;
+    top:50%;
+    transform: translateY(-45%);
+    background-color: hsla(0, 0%, 100%, .8);
+    border-radius: 50px;
+    box-shadow: hsla(0, 0%, 0%, .8) 10px 10px 80px;
+}
+.head, 
+.links {
+  text-align: center;
+}
+
+.head, .content {
+  width: 90%;
+  margin: 0 auto;
+}
+.content {
+  border-top: 1px solid hsla(0, 0%, 30%, .8);
+}
+.head, .about {
+  margin-bottom: 10px;
+}
+.position,
+.company{
+    padding:5px;
+    font-weight: 700;
+}
+.adress{
+    padding: 5px;
+}
+.fas{
+    padding: 20px;
+    font-size: 10px;
+}
+.content {
+  padding: 5%;
+}
+/* Profile image */
+
+.profile-image {
+  margin-top: -100px;
+    position: relative;
+  margin: 0 auto;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+img {
+ /* width: 200px; */
+  height: 200px;
+  border-radius: 50%;
+  padding: 1px;
+  background-color: #666;
+  transition: all 0.5s ease-in-out;
+  /*  tu kurwa trzeba to gówno ustawić zeby obrazek sie cały wypełniał   */
+  background-size: cover;
+}
+img:hover {
+  transform: scale(1.1);
+}
+.name{
+    font-size: 30px;
+    color: rgba(10,80,100,.8);
+    font-family:cursive, Arial,sans-serif;
+}
+.name-headline{
+    font-size: 17px;
+    color: rgba(10,10,10,.7);
+    font-family:verdana, Arial,sans-serif;
+    margin-top: -100px;
+}
+.textarea{
+    font-size: 17px;
+    color: rgba(10,10,10,0.7);
+    text-align: center;
+    font-family:sans-serif, Arial,sans-serif;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.links{
+    font-size: 13px;
+    color: rgba(10,10,10,.7);
+    font-family:verdana, Arial,sans-serif;  
+}
+h2{
+      font-size: 15px;
+}
+.contact{
+    margin-left: 30%;
+    text-align:left;
+    font-size: 13px;
+    color: rgba(10,10,10,.7);
+    font-family:verdana, Arial,sans-serif;  
+}
+.icon{
+    margin-bottom: 0px;
+    margin-right: 10px;
+    font-size: 40px;
+    padding: 5px; 
+}
+.iconic{
+    padding: 6px;   
+}
+.conct{
+    margin-left: 15%;
+    margin-top: -8%;
+    font-size: 15px;
+    padding: 6px;
+} 
+.icon2{
+    margin-bottom: 0px;
+    margin-right: 10px;
+    font-size: 40px;
+    padding: 5px;
+}

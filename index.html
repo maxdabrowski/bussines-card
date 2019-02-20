@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+    <title>Business Card</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="card.css" rel="stylesheet" type="text/css"/>  
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script> 
+</head>
+<body>
+    <div class="business-card" id="businessCard">
+        <div class="title-card"> wygenerujuj swoją wizytówkę</div>
+        <form class="form" id="contactForm" >
+            <div class="title-description">Uzupełnij swoje dane,a następnie wygeneruj wizytówki</div>
+    
+            <div class="form-row">
+                <label for="field-name">Imię:</label>
+                <input type="text" name="name" required id="field-name" data-error="Wypełnij to pole" pattern="[a-zA-ZąĄććęęłŁńŃóÓśŚżŻŹŹ ]+">
+            </div>
+    
+            <div class="form-row">
+                <label for="field-surname">Nazwisko:</label>
+                <input type="text" name="name" required id="field-surname" data-error="Wypełnij to pole" pattern="[a-zA-ZąĄććęęłŁńŃóÓśŚżŻŹŹ ]+">
+            </div>
+    
+            <div class="form-row">
+                <label for="field-company">Nazwa firmy:</label>
+                <input type="text" name="name" required id="field-company" data-error="Wypełnij to pole" pattern="[a-zA-Z0-9ąĄććęęłŁńŃóÓśŚżŻŹŹ ]+">
+            </div>
+    
+            <div class="form-row">
+                <label for="field-position">Stanowisko:</label>
+                <input type="text" name="name" required id="field-position" data-error="Wypełnij to pole" pattern="[a-zA-ZąĄććęęłŁńŃóÓśŚżŻŹŹ ]+">
+            </div>
+    
+            <div class="form-row">
+                <label for="field-adress">Adres:</label>
+                <input type="text" name="name" required id="field-adress" data-error="Wypełnij to pole" pattern="[a-zA-Z0-9ąĄććęęłŁńŃóÓśŚżŻŹŹ,- ]+">
+            </div>   
+            
+            <div class="form-row">
+                <label for="field-email">Email:</label>
+                <input type="email" name="email" required id="field-email" data-error="Wpisz poprawny email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+            </div>
+    
+            <div class="form-row">
+                <label for="field-tel">Numer telefonu:</label>
+                <input type="tel" name="name" required id="field-tel" data-error="Podaj 9 cyfrowy numer telefonu" pattern="\d{9}$">
+            </div>
+    
+            <div class="form-row">
+                <label for="field-webside">Strona interetowa:</label>
+                <input type="text" name="name" required id="field-webside" data-error="Podaj stronę www" pattern="[w]{3}\.[a-zA-z0-9-]+\.[a-z]+">
+            </div>
+            
+            <div class="form-row">
+                <label for="field-message">Parę słów o sobie:</label>
+                <textarea  name="message" required id="field-message" data-error="napisz parę słów o sobie" pattern=".+"></textarea>
+            </div>
+            
+             <div class="form-row">
+                <label for="field-photo">Twoje zdjęcie:</label>
+                <input type="file" name="name" required id="field-photo" data-error="musisz dodać zdjęcie" onchange="changePhoto()">
+            </div>
+            
+            <div class="form-row">
+                <label for="field-background">Zdjęcie tła:</label>
+                <input type="file" name="name" id="field-background" onchange="changeBackground()">
+            </div>
+            
+            <div class="form-row">
+                <label class="checkbox-cnt">
+                    <input type="checkbox" required data-error="Musisz wyrazić zgodę" name="regulation">
+                    <i class="state" aria-hidden="true"></i>
+                    <span>wyrażam zgodę na przetwarzanie moich danych osobowych </span>
+                </label>
+            </div>
+            <div class="form-row">
+                <button type="submit" id="btn" class="submit-btn">
+                   <!-- <a href="#output"> --> Generuj wizytówke <!-- </a> -->
+                </button>
+            </div>
+        </form>
+    </div>   
+ <div class="output" id="output">
+    <div class="profile-card">
+        <div class="head">
+            <div class="profile-image">
+                <img id="photo" src="images/LinkedIn.jpg" alt="photo">
+            </div>
+            <div class="name-headline">
+                <div id ="name" class="name"></div>
+                <br>
+                <div id="position" class="position"></div>
+                <span> w firmie </span>
+                <div id="company" class="company"></div>
+                <div class="adress">
+                    <i class="icon fas fa-map-marker-alt"></i>
+                    <div id="adress"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="about">
+                <div id="textarea" class="textarea"> </div> 
+                <div class="links">
+                    <br>
+                    <h2>Masz jakieś pytania, skontaktuj się ze mną:</h2>
+                    <div class="contact">
+                        <div class="iconic">
+                            <i class="icon fas fa-phone"></i>
+                            <div id="tel" class="conct"></div>
+                        </div>   
+                        <div class="iconic">
+                            <i class="icon far fa-envelope"></i>
+                            <div id="email" class="conct"> </div>
+                        </div>
+                        <div class="iconic"><i class="icon fas fa-globe"></i>
+                            <div id="webside" class="conct"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </div>  
+    </div>
+ </div>
+</body>
+<script src="card.js" type="text/javascript"></script>
+</html>
